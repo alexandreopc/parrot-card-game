@@ -1,6 +1,40 @@
 *{
     box-sizing: border-box;
 }
-A{
+a{
     text-decoration: none;
 }
+body{
+    background-color: #E5E5E5;
+    font-family: 'Roboto', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+}
+header h1 {
+    
+    margin: 40px 0 13px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #75B79E;
+}
+
+.container-cartas {
+padding: 34px 58px 0;
+}
+
+.carta {
+    width: 117px;
+    height: 146px;
+    background: #A7E9AF;
+    border: 1px solid #99CEA8;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.verso{
+    background-image: url("../images/front.png")
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
