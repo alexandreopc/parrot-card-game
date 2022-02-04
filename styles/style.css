@@ -10,11 +10,15 @@ body{
 }
 
 header{
-    display: flex;
-    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 3;
 }
 header h1 {
-    
+    display: flex;
+    justify-content: center;
     margin: 40px 0 13px;
     font-size: 36px;
     font-weight: 700;
@@ -22,19 +26,47 @@ header h1 {
 }
 
 .container-cartas {
-padding: 34px 58px 0;
+padding: 125px 58px 0;
 }
 
 .carta {
     width: 117px;
     height: 146px;
+    margin: 34px 34px 0 0;
+    position: relative;
+    
+}
+
+.face{
+    display: flex;
+    width: 100%;
+    height: 100%;
     background: #A7E9AF;
     border: 1px solid #99CEA8;
     box-sizing: border-box;
     border-radius: 5px;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
 }
-.verso{
-    background-image: url("../images/front.png")
+
+.back-face {
+    transform: rotateY(180deg);
+  }
+
+.carta:hover .back-face {
+    transform: rotateY(0deg);
 }
+
+.carta:hover .front-face {
+    transform: rotateY(-180deg);
+}
+
+   .front-face{
+    background-image: url("../images/front.png");
+    background-size: 77%;
+    background-position: center;
+} 
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
