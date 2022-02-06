@@ -86,7 +86,7 @@ function verificaPar() {
 
 function verificaVitoria(){
     const cartas = document.querySelectorAll(".par");
-    const travarCartas = document.querySelectorAll(".selecionada");
+
     if(cartas.length === parseInt(numeroDeCartas)){
         alert(`Você ganhou em ${jogadas} jogadas!
         Tempo gasto ${minutos}:${segundos}`);
@@ -95,6 +95,7 @@ function verificaVitoria(){
             reinciaJogo();
         }
         else {
+            console.log("Nada acontece");
             clearInterval(cron);
         }
 
