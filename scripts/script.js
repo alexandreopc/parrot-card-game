@@ -1,4 +1,4 @@
-let numeroDeCartas;
+let numeroDeCartas = 0;
 const arrayCartas = ["carta1", "carta1", "carta2", "carta2", "carta3", "carta3", "carta4", "carta4",  "carta5",  "carta5", "carta6", "carta6", "carta7", "carta7"];
 let arrayCartasEscolhidas = arrayCartas.slice();
 let cartasSelecionadas = 0;
@@ -47,18 +47,22 @@ function selecionarCarta(li, i){
     }
     if(cartasSelecionadas == 1){ 
         nome1Par = li.innerHTML;
-        console.log(nome1Par);
      }else{
          nome2Par = li.innerHTML;
-         console.log(nome2Par);
      }
-     console.log(cartasSelecionadas);
     if(cartasSelecionadas == 2){
+        const cartas = document.querySelectorAll(".selecionada");
         if(nome1Par === nome2Par){
-            console.log("deucerto");
+            console.log("formou par");
+            cartas[0].classList.add("par");
+            cartas[1].classList.add("par");
+            cartas[0].classList.remove("selecionada");
+            cartas[1].classList.remove("selecionada");
+            cartasSelecionadas = 0;
+            nome1Par = "";
+            nome2Par = "";
         }
         else{
-            const cartas = document.querySelectorAll(".selecionada");
             cartas[0].classList.remove("selecionada");
             cartas[1].classList.remove("selecionada");
             cartasSelecionadas = 0;
@@ -66,9 +70,16 @@ function selecionarCarta(li, i){
             nome2Par = "";
         }
     }
-    //console.log(cartasSelecionadas);     
+    verificaVitoria();
 }
 
+function verificaVitoria(){
+    const cartas = document.querySelectorAll(".par");
+    console.log(cartas.length);
+    if(cartas.length === parseInt(numeroDeCartas)){ // arrumar tipo do numeroDeCartas
+        console.log("ganhou!!!");
+    }
+}
 
 escolherNCartas();
 
