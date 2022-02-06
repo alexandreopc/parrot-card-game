@@ -4,6 +4,7 @@ let arrayCartasEscolhidas = arrayCartas.slice();
 let cartasSelecionadas = 0;
 let nome1Par = "";
 let nome2Par = "";
+let jogadas = 0;
 
 function escolherNCartas(){
     numeroDeCartas = prompt("Com quantas cartas gostaria de jogar?");
@@ -39,7 +40,7 @@ function comparador() {
 }
 
 function selecionarCarta(li, i){
-    
+    jogadas++;
     if(cartasSelecionadas <= 1){
         li.classList.toggle("selecionada");
         const cartas = document.querySelectorAll(".selecionada");
@@ -53,7 +54,6 @@ function selecionarCarta(li, i){
     if(cartasSelecionadas == 2){
         const cartas = document.querySelectorAll(".selecionada");
         if(nome1Par === nome2Par){
-            console.log("formou par");
             cartas[0].classList.add("par");
             cartas[1].classList.add("par");
             cartas[0].classList.remove("selecionada");
@@ -75,9 +75,14 @@ function selecionarCarta(li, i){
 
 function verificaVitoria(){
     const cartas = document.querySelectorAll(".par");
-    console.log(cartas.length);
-    if(cartas.length === parseInt(numeroDeCartas)){ // arrumar tipo do numeroDeCartas
-        console.log("ganhou!!!");
+    if(cartas.length === parseInt(numeroDeCartas)){
+        alert(`Você ganhou em ${jogadas} jogadas!`);
+        let resposta = prompt(`Gostaria de Jogar novamente? (s/n)`);
+        if(resposta === "s" || resposta === "S" || resposta === "sim" || resposta === "Sim" || resposta === "SIM"){
+            console.log("asdadssasdsadasda");
+        }
+        else{console.log("blzzzzzzz");}
+
     }
 }
 
