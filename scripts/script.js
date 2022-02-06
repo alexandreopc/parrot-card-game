@@ -1,7 +1,4 @@
-//TIMER
 //fonte titulo quando mobile
-//ORGANIZAR CARTAS EM UM BLOCO
-//CORRECAO AUTOMATICA
 
 let numeroDeCartas = 0;
 const arrayCartas = ["carta1", "carta1", "carta2", "carta2", "carta3", "carta3", "carta4", "carta4",  "carta5",  "carta5", "carta6", "carta6", "carta7", "carta7"];
@@ -10,6 +7,9 @@ let cartasSelecionadas = 0;
 let nome1Par = "";
 let nome2Par = "";
 let jogadas = 0;
+let minutos = 0;
+let segundos = 0;
+let cron;
 
 function escolherNCartas(){
     numeroDeCartas = prompt("Com quantas cartas gostaria de jogar?");
@@ -86,14 +86,18 @@ function verificaPar() {
 
 function verificaVitoria(){
     const cartas = document.querySelectorAll(".par");
-
+    const travarCartas = document.querySelectorAll(".selecionada");
     if(cartas.length === parseInt(numeroDeCartas)){
-        alert(`Você ganhou em ${jogadas} jogadas!`);
+        alert(`Você ganhou em ${jogadas} jogadas!
+        Tempo gasto ${minutos}:${segundos}`);
         let resposta = prompt(`Gostaria de Jogar novamente? (s/n)`);
         if(resposta === "s" || resposta === "S" || resposta === "sim" || resposta === "Sim" || resposta === "SIM"){
             reinciaJogo();
         }
-        else{console.log("To fazendo perai");}
+        else {
+            clearInterval(cron);
+        }
+
 
     }
 }
@@ -105,9 +109,24 @@ function reinciaJogo(){
     nome1Par = "";
     nome2Par = "";
     jogadas = 0;
+    segundos = 0;
+    minutos = 0;
     escolherNCartas();
 }
 
+function cronometro(){
+    segundos++;
+    if(segundos==60){
+        minutos++;
+        segundos = 0;
+        document.querySelector(".min").innerHTML = `${minutos}:`;
+    }
+    if(segundos < 10){
+        document.querySelector(".seg").innerHTML = `0${segundos}`;
+    }else{document.querySelector(".seg").innerHTML = `${segundos}`;}
+    
+}
+cron = setInterval(cronometro, 1000);
 escolherNCartas();
 
 
