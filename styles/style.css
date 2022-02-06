@@ -22,7 +22,7 @@ header h1 {
     justify-content: center;
     /* align-content: center; */
     margin: 40px 0 13px;
-    font-size: 36px;
+    font-size: 56px;
     font-weight: 700;
     color: #75B79E;
 }
@@ -57,6 +57,8 @@ header h1 {
     transition: all .5s;
     transform-style: preserve-3d;
 }
+
+
 .card.selecionada .card-back {
     /* transform: rotateY(-180deg); */
     transform: rotateY(0);
@@ -66,70 +68,61 @@ header h1 {
     transform: rotateY(-180deg);
 }
 
-.card.par .card-back {
-    /* transform: rotateY(-180deg); */
-    transform: rotateY(0);
-}
 .card.par .card-front {
     /* transform: rotateY(0); */
     transform: rotateY(-180deg);
 }
-
-.card-back {
-    /* transform: rotateY(0); */
-    transform: rotateY(180deg);
-  }
-.card:hover .card-front{
-    /* transform: rotateY(0deg); */
-    transform: rotateY(-180deg);
-}
-.card:hover .card-back{
+.card.par .card-back {
     /* transform: rotateY(-180deg); */
-    transform: rotateY(0deg);
-}
-.card-front {
-    /* transform: rotateY(180deg); */
     transform: rotateY(0);
-} 
+}
 
 .card-front{
+    display: flex;
+    /* transform: rotateY(180deg); */
+    transform: rotateY(0);
     background-image: url("../images/front.png");
     background-size: 77%;
     background-position: center;
 } 
 
-.carta1 .back-face {
-    background-image: url("../images/bobrossparrot.gif");
+.card-back {
+    display: flex;
+    /* transform: rotateY(0); */
+    transform: rotateY(180deg);
+  }
+.carta1 .card-back {
+    background-image: url("../images/carta1.gif");
     background-size: 77%;
     background-position: center;
 }
-.carta2 .back-face {
-    background-image: url("../images/explodyparrot.gif");
+.carta2 .card-back {
+    background-image: url("../images/carta2.gif");
     background-size: 77%;
     background-position: center;
 }
-.carta3 .back-face {
-    background-image: url("../images/fiestaparrot.gif");
+.carta3 .card-back {
+    background-image: url("../images/carta3.gif");
     background-size: 77%;
     background-position: center;
 }
-.carta4 .back-face {
-    background-image: url("../images/metalparrot.gif");
+.carta4 .card-back {
+    background-image: url("../images/carta4.gif");
     background-size: 77%;
     background-position: center;
 }
-.carta5 .back-face {
-    background-image: url("../images/revertitparrot.gif");
+.carta5 .card-back {
+    background-image: url("../images/carta5.gif");
     background-size: 77%;
     background-position: center;
 }
-.carta6 .back-face {
-    background-image: url("../images/tripletsparrot.gif");
+.carta6 .card-back {
+    background-image: url("../images/carta6.gif");
     background-size: 77%;
     background-position: center;
 }
-.carta7 .back-face {
-    background-image: url("../images/unicornparrot.gif");
+.carta7 .card-back {
+    background-image: url("../images/carta7.gif");
     background-size: 77%;
     background-position: center;
 }
